@@ -89,21 +89,17 @@ public class InvoiceDesign {
 		TextColumnBuilder<BigDecimal> unitPriceColumn = col.column("Vieneto kaina", "unitprice", type.bigDecimalType());//Templates.currencyType);
 		TextColumnBuilder<String> taxColumn = col.column("PVM", exp.text("20%"))
 				.setFixedColumns(3);
-		// price = unitPrice * quantity
 		TextColumnBuilder<BigDecimal> priceColumn = unitPriceColumn.multiply(quantityColumn)
 				.setTitle("Kaina")
 				.setDataType(type.bigDecimalType());
-		// vat = price * tax
 		TextColumnBuilder<BigDecimal> vatColumn = priceColumn.multiply(data.getInvoice().getTax())
 				.setTitle("Kaina su PVM")
 				.setDataType(type.bigDecimalType());
-		// total = price + vat
 		TextColumnBuilder<BigDecimal> totalColumn = priceColumn.add(vatColumn)
 				.setTitle("Suma")
 				.setDataType(type.bigDecimalType())
 				.setRows(2)
 				.setStyle(subtotalStyle);
-		// init subtotals
 		totalSum = sbt.sum(totalColumn)
 				.setLabel("Ið viso:")
 				.setLabelStyle(Templates.boldStyle);
@@ -113,7 +109,6 @@ public class InvoiceDesign {
 				.setTemplate(Templates.reportTemplate)
 				.setColumnStyle(columnStyle)
 				.setSubtotalStyle(subtotalStyle)
-				// columns
 				.columns(
 						rowNumberColumn, descriptionColumn, quantityColumn, unitPriceColumn, totalColumn, priceColumn, taxColumn, vatColumn)
 				.columnGrid(
@@ -126,11 +121,9 @@ public class InvoiceDesign {
 						totalSum, sbt.sum(priceColumn), sbt.sum(vatColumn))
 				// band components
 				.title(
-						//cmp.image(Templates.class.getResource("Icon.jpg")).setFixedDimension(80, 80),
 						cmp.text("PVM SÀSKAITA FAKTÛRA").setStyle(titleStyle).setHorizontalTextAlignment(HorizontalTextAlignment.CENTER),
 						
 						cmp.text("Serija: " + serija + "   Nr.:" + data.getInvoice().getId()).setStyle(serijaNumerisStyle).setHorizontalTextAlignment(HorizontalTextAlignment.CENTER),
-						//Templates.createTitleComponent("Nr.: " + data.getInvoice().getId()),
 						cmp.text(invoicingDate).setStyle(serijaNumerisStyle).setHorizontalTextAlignment(HorizontalTextAlignment.RIGHT),
 						
 						cmp.horizontalList().setStyle(stl.style(10)).setGap(50).add(
@@ -142,9 +135,7 @@ public class InvoiceDesign {
 				.pageFooter(
 						Templates.footerComponent)
 				.summary(
-						//cmp.text(data.getInvoice().getShipping()).setValueFormatter(Templates.createCurrencyValueFormatter("Shipping:")).setStyle(shippingStyle),
 						cmp.horizontalList(
-							//	cmp.text("").setStyle(Templates.bold12CenteredStyle),
 								cmp.text(new TotalPaymentExpression()).setStyle(bendraSumaStyle).setHorizontalTextAlignment(HorizontalTextAlignment.RIGHT)),
 						cmp.text("Kasos aparato Nr. 123 Èekio Nr. _________________________").setStyle(stl.style(10)).setHorizontalTextAlignment(HorizontalTextAlignment.LEFT),
 						cmp.verticalGap(50),
@@ -180,7 +171,7 @@ public class InvoiceDesign {
 		public String evaluate(ReportParameters reportParameters) {
 			BigDecimal total = reportParameters.getValue(totalSum);
 			BigDecimal shipping = total.add(new BigDecimal(0));
-			return "Mokëjimo suma: " + total.setScale(2, BigDecimal.ROUND_HALF_UP); //Templates.currencyType.valueToString(shipping, reportParameters.getLocale());
+			return "Mokëjimo suma: " + total.setScale(2, BigDecimal.ROUND_HALF_UP);
 		}
 	}
 }

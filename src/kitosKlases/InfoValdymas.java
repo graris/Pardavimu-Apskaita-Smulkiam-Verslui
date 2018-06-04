@@ -21,8 +21,7 @@ import atributai.PirkejuAtributai;
 import atributai.PrekesAtributai;
 import funkcionalumas.DuomenuBaze.DBduomenys;
 import funkcionalumas.DuomenuBaze.SQLuzklausos;
-//import funkcionalumas.langai.DuomenuRedagavimasLangas;
-//import gui.Israsymo_Vaizdas;
+
 
 //----------------------------------------------------------------------------------
 //##################################################################################
@@ -84,126 +83,9 @@ public class InfoValdymas {
 			
 		}
 		
-		//duomenys.clear();
 	}
 
 
-	//#########################################################################################
-	//  Sis metodas, priklausomai nuo duomenu rusies (t.y. ar duomens_rusis = "imone" ar 
-	//  "preke") atlieka su jais veiksmus, kuriu deka saskaitos kurimo lange parodomi
-	//  pasirinkti duomenys
-	//#########################################################################################
-//	public static void Israsymo_duomenys(ArrayList <ArrayList<String>> duomenys_israsymui, Israsymo_Vaizdas israsymoVaizdas,
-//			int PasirinktaEilute, String duomenu_rusis, Statement st) {
-//		
-//		if (duomenu_rusis.equals("imone")) {
-//			
-//			ArrayList <ArrayList<String>> duomenys = new ArrayList <ArrayList<String>>();
-//			
-//			duomenys = new DBduomenys(st, duomenys).getDBlentelesDuomenys( 
-//					new ImonesAtributai(), new SQLuzklausos().getVisiImonesDuomenys());
-//
-//
-//			
-//			long pasirinktas = Identisko_duomens_paieska(duomenys, israsymoVaizdas.getLenteleImonems(), PasirinktaEilute);
-//	
-//			//----------------------------------------------------------------------------------------------------
-//			
-//			duomenys_israsymui.get(0).clear();
-//			
-//			israsymoVaizdas.getPanelePasirinktaiImonei().removeAll();
-//			
-//			for (int i=1; i<duomenys.size(); i++) {
-//				
-//				if (pasirinktas == Long.parseLong(duomenys.get(i).get(0))) {
-//					
-//					JPanel imones = new JPanel(new GridLayout(0, 1, 5, 5));
-//
-//					for (int j=1; j<duomenys.get(0).size(); j++) {
-//						
-//						imones.add(new JLabel(Koduote.KodasIRaide(duomenys.get(0).get(j))
-//								+ ": " + Koduote.KodasIRaide(duomenys.get(i).get(j))));
-//						
-//						
-//					}
-//					
-//					israsymoVaizdas.getPanelePasirinktaiImonei().add(imones, BorderLayout.PAGE_START);  
-//		 
-//					for (int k=0; k<duomenys.get(i).size(); k++) {
-//						duomenys_israsymui.get(0).add(duomenys.get(i).get(k));
-//					}
-//				}
-//				
-//			}
-//			
-//		}
-//			else if (duomenu_rusis.equals("preke")) {
-//				
-//				ArrayList <ArrayList<String>> duomenys = new ArrayList <ArrayList<String>>();
-//				
-//				duomenys = new DBduomenys(st, duomenys).getDBlentelesDuomenys(
-//						new PrekesAtributai(), new SQLuzklausos().getVisiPrekesDuomenys());
-//				
-//				long pasirinktas = Identisko_duomens_paieska(duomenys, israsymoVaizdas.getLentelePrekems(), PasirinktaEilute);
-//			
-//				//----------------------------------------------------------------------------------------------------
-//				
-//				ArrayList <ArrayList<String>> Eilutes = new ArrayList<ArrayList<String>>();
-//						
-//				Eilutes.clear();
-//				
-//				for (int i=1; i<duomenys.size(); i++) {
-//					
-//					
-//					
-//					if (pasirinktas == Long.parseLong(duomenys.get(i).get(0))) {
-//
-//						Eilutes.add(new ArrayList <String>());
-//						
-//						for (int j=1; j<duomenys.get(0).size(); j++) {
-//							
-//							Eilutes.get(0).add(duomenys.get(i).get(j));
-//
-//						}
-//						
-//						Eilutes.get(0).add(israsymoVaizdas.getTxt_kiekis().getText());
-//						
-//						
-//						for (int j=0; j<duomenys_israsymui.get(1).size(); j++) {
-//							
-//							System.out.println(duomenys_israsymui.get(2).get(j) + " =============== " + pasirinktas);
-//							
-//							if (Long.parseLong(duomenys_israsymui.get(2).get(j)) == pasirinktas) {
-//								
-//								israsymoVaizdas.getModelisPasirinktomsPrekems().removeRow(j);
-//								
-//								duomenys_israsymui.get(1).remove(j);
-//								
-//								duomenys_israsymui.get(2).remove(j);
-//								
-//								break;
-//								
-//							}
-//							
-//						}
-//						
-//						duomenys_israsymui.get(1).add(israsymoVaizdas.getTxt_kiekis().getText());
-//						
-//						duomenys_israsymui.get(2).add(duomenys.get(i).get(0));
-//						
-//						israsymoVaizdas.getModelisPasirinktomsPrekems().addRow(Eilutes.get(0).toArray());
-//
-//							
-//					}
-//					
-//				}
-//				
-//			}
-//	
-//		
-//	}
-//	
-//	
 	//#########################################################################################
 	//  Sis metodas suranda sutampancius duomenis su pasirinktais lenteleje ir grazina 
 	//  ju ID

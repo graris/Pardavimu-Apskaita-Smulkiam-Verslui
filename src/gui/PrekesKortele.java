@@ -90,9 +90,6 @@ public class PrekesKortele extends JFrame{
 	}
 
 	private void init() {
-			//selectPrekesPirkimusIrPardavimusPagalPrekesKoda
-//		ipp = new IrasuPerziurosPanele(st, new PrekesAtributai(), 
-//			new SQLuzklausos().selectVisusPrekesLikuciuDuomenisPagalPrekesKoda(prekesKodas));
 		
 		ipp = new IrasuPerziurosPanele(st, new PrekesAtributai(), 
 				new SQLuzklausos().selectPrekesPirkimusIrPardavimusPagalPrekesKoda(prekesKodas));

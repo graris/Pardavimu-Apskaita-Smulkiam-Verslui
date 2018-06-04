@@ -19,7 +19,6 @@ import atributai.TiekejuAtributai;
 import funkcionalumas.DuomenuBaze.DBduomenys;
 import funkcionalumas.DuomenuBaze.SQLuzklausos;
 import kitosKlases.InvoiceDesign;
-import kitosKlases.SaskaitosPateikimas;
 import net.sf.dynamicreports.examples.complex.invoice.Customer;
 import net.sf.dynamicreports.examples.complex.invoice.Item;
 import net.sf.dynamicreports.jasper.builder.JasperReportBuilder;
@@ -365,7 +364,6 @@ public class SaskaitosFakturosFormavimoFrame extends ApskaitosDokumentoFormavimo
 		
 		
 		mygtukuPanele.add(panel, BorderLayout.LINE_END);
-		//mygtukuPanele.add(issaugotiIrIsrasyti, BorderLayout.LINE_END);
 		
 	}
 	

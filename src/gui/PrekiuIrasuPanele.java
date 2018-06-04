@@ -89,18 +89,7 @@ public class PrekiuIrasuPanele extends IrasuPerziurosPanele{
 	protected void render() {
 		
 		super.render();
-		//----------------------------------------------------
-		
-		//---------Mygtuku isdestymai mygtuku paneleje--------
-		
-			//----------------------------------------------------
-			
-//			paneleRedSalMygtukams.add(redaguoti);
-//			paneleRedSalMygtukams.add(salinti);
-			
-			//----------------------------------------------------
-		
-//		paneleMygtukams.add(paneleRedSalMygtukams);
+
 		paneleMygtukams.add(atidarytiKortele);
 		
 		//----------------------------------------------------
